@@ -1,0 +1,13 @@
+image:
+  registry: docker.io
+  repository: trialblazerseee/gateway
+  tag: latest
+
+istio:
+  enabled: true
+  hosts:
+    - api-internal.dst-training.mosip.net
+  ## Associate with either public or internal ingress controllers
+  ingressController:
+    name: ingressgateway-internal
+  prefix: /v1/gateway/
