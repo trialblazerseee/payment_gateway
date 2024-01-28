@@ -11,3 +11,5 @@ istio:
   ingressController:
     name: ingressgateway-internal
   prefix: /v1/gateway
+  rewrite:
+    uri: /v1/gateway
