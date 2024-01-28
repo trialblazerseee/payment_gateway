@@ -389,7 +389,7 @@ metrics:
     rules: []
 
 ports:
-  migrator: 8083
+  gateway: 8083
 ## Partner management needs public access.
 istio:
   enabled: true

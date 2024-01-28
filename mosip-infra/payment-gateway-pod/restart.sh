@@ -1,5 +1,5 @@
 #!/bin/bash
-# Restart the migrator services
+# Restart the payment-gateway services
 ## Usage: ./restart.sh [kubeconfig]
 
 if [ $# -ge 1 ] ; then
@@ -7,7 +7,7 @@ if [ $# -ge 1 ] ; then
 fi
 
 
-function Restarting_migrator() {
+function Restarting_gateway() {
   NS=payment-gateway
   kubectl -n $NS rollout restart deploy
 
@@ -22,4 +22,4 @@ set -o errexit   ## set -e : exit the script if any statement returns a non-true
 set -o nounset   ## set -u : exit the script if you try to use an uninitialised variable
 set -o errtrace  # trace ERR through 'time command' and other functions
 set -o pipefail  # trace ERR through pipes
-Restarting_migrator   # calling function
+Restarting_gateway   # calling function
