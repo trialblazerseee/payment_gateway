@@ -7,12 +7,12 @@ if [ $# -ge 1 ] ; then
 fi
 
 function payment_gateway() {
-  NS=payment_gateway
+  NS=payment-gateway
   while true; do
       read -p "Are you sure you want to delete payment helm chart?(Y/n) " yn
       if [ $yn = "Y" ]
         then
-          helm -n $NS delete payment_gateway
+          helm -n $NS delete payment-gateway
           break
         else
           break
