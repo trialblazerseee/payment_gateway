@@ -1,28 +1,28 @@
 {{/*
 Return the proper  image name
 */}}
-{{- define "data-migrator.image" -}}
+{{- define "payment-gateway.image" -}}
 {{ include "common.images.image" (dict "imageRoot" .Values.image "global" .Values.global) }}
 {{- end -}}
 
 {{/*
 Return the proper image name (for the init container volume-permissions image)
 */}}
-{{- define "data-migrator.volumePermissions.image" -}}
+{{- define "payment-gateway.volumePermissions.image" -}}
 {{- include "common.images.image" ( dict "imageRoot" .Values.volumePermissions.image "global" .Values.global ) -}}
 {{- end -}}
 
 {{/*
 Return the proper Docker Image Registry Secret Names
 */}}
-{{- define "data-migrator.imagePullSecrets" -}}
+{{- define "payment-gateway.imagePullSecrets" -}}
 {{- include "common.images.pullSecrets" (dict "images" (list .Values.image .Values.volumePermissions.image) "global" .Values.global) -}}
 {{- end -}}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "data-migrator.serviceAccountName" -}}
+{{- define "payment-gateway.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create -}}
     {{ default (printf "%s" (include "common.names.fullname" .)) .Values.serviceAccount.name }}
 {{- else -}}
@@ -33,10 +33,10 @@ Create the name of the service account to use
 {{/*
 Compile all warnings into a single message.
 */}}
-{{- define "data-migrator.validateValues" -}}
+{{- define "payment-gateway.validateValues" -}}
 {{- $messages := list -}}
-{{- $messages := append $messages (include "data-migrator.validateValues.foo" .) -}}
-{{- $messages := append $messages (include "data-migrator.validateValues.bar" .) -}}
+{{- $messages := append $messages (include "payment-gateway.validateValues.foo" .) -}}
+{{- $messages := append $messages (include "payment-gateway.validateValues.bar" .) -}}
 {{- $messages := without $messages "" -}}
 {{- $message := join "\n" $messages -}}
 
@@ -48,7 +48,7 @@ Compile all warnings into a single message.
 {{/*
 Return podAnnotations
 */}}
-{{- define "data-migrator.podAnnotations" -}}
+{{- define "payment-gateway.podAnnotations" -}}
 {{- if .Values.podAnnotations }}
 {{ include "common.tplvalues.render" (dict "value" .Values.podAnnotations "context" $) }}
 {{- end }}

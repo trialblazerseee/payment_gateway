@@ -8,11 +8,11 @@ fi
 
 
 function Restarting_migrator() {
-  NS=data-migrator
+  NS=payment-gateway
   kubectl -n $NS rollout restart deploy
 
   kubectl -n $NS  get deploy -o name |  xargs -n1 -t  kubectl -n $NS rollout status
-  echo Restarted data-migrator services
+  echo Restarted payment-gateway services
   return 0
 }
 

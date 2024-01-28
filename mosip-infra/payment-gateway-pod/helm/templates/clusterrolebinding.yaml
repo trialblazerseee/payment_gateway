@@ -15,5 +15,5 @@ roleRef:
   name: {{ template "common.names.fullname" . }}
 subjects:
   - kind: ServiceAccount
-    name: {{ template "data-migrator.serviceAccountName" . }}
+    name: {{ template "payment-gateway.serviceAccountName" . }}
     namespace: {{ .Release.Namespace }}

@@ -1,5 +1,5 @@
 apiVersion: v2
-name: data-migrator
+name: payment-gateway
 description: A Helm chart for sample Data Migrator Service
 type: application
 version: 12.0.1
@@ -13,7 +13,7 @@ dependencies:
 home: https://mosip.io
 keywords:
   - mosip
-  - data-migrator
+  - payment-gateway
 maintainers:
   - email: info@mosip.io
     name: MOSIP
