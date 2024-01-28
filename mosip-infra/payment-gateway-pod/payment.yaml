@@ -10,4 +10,4 @@ istio:
   ## Associate with either public or internal ingress controllers
   ingressController:
     name: ingressgateway-internal
-  prefix: /v1/gateway/
+  prefix: /v1/gateway
